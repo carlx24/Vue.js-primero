@@ -7,19 +7,30 @@
         <input v-model="message">
         <button v-on:click="sayHello">Alerta</button> <!--  Pasando un metodo -->
         <button @click="sayHello">Alerta (@)</button> <!--  blazor -->        
-        <button v-on:click="toggleHighlight">otro1</button> <!--  blazor -->        
+        <button v-on:click="toggleHighlight">Dorado</button> <!--  cambiar a dorado -->        
         <ul>            
             <li v-for="item in list" :key = "item.id" >{{ item.id  + ' '+ item.text }}</li>
         </ul>
+
+        <h3>{{ mensaje }}</h3>
+        <button @click="changeMessage">Cambiar mensaje</button> 
+
     </div>
 </template>
+
+<style scoped>
+    .highlighted{
+        color:gold;
+    }
+</style>
+
 <script>
     export default {
         name: 'MiComponente',
         data(){
             return{
                 message: 'Hola mundo desde vue',
-                title: 'Esto es el sub-titulo',
+                title: 'Esto es el subtitulo',
                 isHighlighted: false,
                 isVisible:true,
                 list: [
